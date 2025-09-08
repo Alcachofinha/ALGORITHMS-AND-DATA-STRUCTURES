@@ -1,1 +1,148 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alvaro Matias Salazar Zapata — Estudiante de CC</title>
+  <meta name="description" content="Estudiante de 4.º ciclo de la UNMSM (Ciencias de la Computación). Intereses: C/C++ y Python." />
+  <meta property="og:title" content="Alvaro Matias Salazar Zapata — Estudiante de CC" />
+  <meta property="og:description" content="Estudiante de 4.º ciclo de la UNMSM (Ciencias de la Computación). Intereses: C/C++ y Python." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://alcachofinha.github.io/ALGORITHMS-AND-DATA-STRUCTURES/" />
+  <style>
+    :root{
+      --bg:#0f172a; --panel:#111827; --card:#0b1220;
+      --text:#e5e7eb; --muted:#94a3b8; --accent:#22d3ee; --accent-2:#a78bfa;
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0; padding:0; background:var(--bg); color:var(--text);
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1000px; margin-inline:auto; padding:24px}
+    header{
+      position:sticky; top:0;
+      background:linear-gradient(180deg, rgba(15,23,42,.95), rgba(15,23,42,.8));
+      backdrop-filter:saturate(140%) blur(6px);
+      z-index:10; border-bottom:1px solid rgba(255,255,255,.06)
+    }
+    nav{display:flex; align-items:center; gap:16px; justify-content:space-between}
+    nav .brand{display:flex; align-items:center; gap:12px}
+    .brand .dot{width:10px; height:10px; border-radius:999px; background:linear-gradient(45deg,var(--accent),var(--accent-2))}
+    .links a{margin-left:14px; color:var(--muted)}
+    .links a:hover{color:var(--text)}
+    .hero{display:grid; grid-template-columns:1fr; gap:20px; padding:44px 0}
+    .hero h1{font-size:clamp(28px,5vw,42px); margin:0}
+    .hero p{color:var(--muted); margin:6px 0 0}
+    .hero .cta{display:flex; gap:12px; margin-top:18px}
+    .btn{display:inline-flex; align-items:center; gap:10px; border:1px solid rgba(255,255,255,.12); padding:10px 14px; border-radius:12px}
+    .btn.primary{background:linear-gradient(45deg,var(--accent),var(--accent-2)); color:#0b1020; border-color:transparent; font-weight:600}
+    section{padding:28px 0; border-top:1px solid rgba(255,255,255,.06)}
+    section h2{font-size:clamp(20px,3.5vw,28px); margin:0 0 14px}
+    .grid{display:grid; gap:16px}
+    @media(min-width:800px){
+      .grid.cols-2{grid-template-columns:1fr 1fr}
+      .hero{grid-template-columns:1.4fr .6fr; align-items:center}
+    }
+    .card{background:var(--card); border:1px solid rgba(255,255,255,.06); border-radius:16px; padding:18px}
+    .muted{color:var(--muted)}
+    ul.clean{list-style:none; padding:0; margin:0}
+    ul.clean li{padding:6px 0}
+    footer{padding:28px 0; color:var(--muted); text-align:center}
+    .tag{display:inline-block; border:1px solid rgba(255,255,255,.12); padding:4px 10px; border-radius:999px; font-size:12px; margin-right:6px}
+    img.avatar{width:140px; height:140px; border-radius:16px; object-fit:cover; border:1px solid rgba(255,255,255,.1)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav>
+        <div class="brand">
+          <span class="dot"></span><strong>Alvaro Matias Salazar Zapata</strong>
+        </div>
+        <div class="links" aria-label="Navegación">
+          <a href="#sobre-mi">Sobre mí</a>
+          <a href="#proyectos">Proyectos</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <h1>Hola, soy <span style="background:linear-gradient(45deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent">Alvaro Matias Salazar Zapata</span>.</h1>
+        <p class="muted">Soy estudiante de 4.º ciclo de la UNMSM de la Escuela Profesional de Ciencias de la Computación.</p>
+        <div class="cta">
+          <a class="btn primary" href="#contacto">Escríbeme</a>
+        </div>
+      </div>
+      <div style="justify-self:center">
+        <img class="avatar" src="YOPI.jpg" alt="Foto de perfil de Alvaro" />
+      </div>
+    </section>
+
+    <section id="sobre-mi">
+      <h2>Sobre mí</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <p>Manejo <span class="tag">C</span> <span class="tag">C++</span> <span class="tag">Python</span>. Me gusta practicar con ejercicios de algoritmos y estructuras de datos para fortalecer bases.</p>
+          <ul class="clean muted">
+            <li>🎓 UNMSM — Ciencias de la Computación (4.º ciclo)</li>
+            <li>📧 <a href="mailto:alcachofasalazar12sz@gmail.com">alcachofasalazar12sz@gmail.com</a></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">Habilidades</h3>
+          <ul class="clean">
+            <li>• Lenguajes: C, C++, Python</li>
+            <li>• Temas: estructuras de datos, algoritmos, fundamentos de programación</li>
+            <li>• Herramientas: Git, GitHub, VS Code</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyectos">
+      <h2>Proyectos</h2>
+      <div class="grid cols-2">
+        <article class="card">
+          <h3 style="margin:0 0 6px">Estructuras de Datos (C/C++)</h3>
+          <p class="muted" style="margin:0 0 8px">Implementaciones básicas: listas, pilas, colas y vectores dinámicos.</p>
+          <a class="btn" href="#">Ver código</a>
+        </article>
+        <article class="card">
+          <h3 style="margin:0 0 6px">Ejercicios de Python</h3>
+          <p class="muted" style="margin:0 0 8px">Problemas introductorios de lógica y manejo de archivos.</p>
+          <a class="btn" href="#">Repositorio</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <div class="card">
+        <p>¿Colaboramos? Escríbeme por correo o redes.</p>
+        <ul class="clean">
+          <li>✉️ <a href="mailto:alcachofasalazar12sz@gmail.com">alcachofasalazar12sz@gmail.com</a></li>
+          <li>📱 927488289</li>
+          <li>🐙 <a href="https://github.com/Alcachofinha" target="_blank" rel="noopener">github.com/Alcachofinha</a></li>
+          <li>🔗 <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener">linkedin.com/feed</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="y"></span> Alvaro Matias Salazar Zapata — Hecho con GitHub Pages
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
 
