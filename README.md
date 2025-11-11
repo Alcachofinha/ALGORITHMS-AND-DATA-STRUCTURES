@@ -47,3 +47,13 @@ M = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)
 
 ## 🗂️ Estructura del Proyecto
 
+---
+
+## ▶️ Cómo Ejecutar el Proyecto
+
+### Opción A) Visual Studio Code + Live Server (recomendado)
+1. Clona el repositorio:
+   ```bash
+  git clone https://github.com/PaoloVM27/Evaluador-y-Validador-Postfijo-con-Automata-de-Pila.git
+   cd Evaluador-y-Validador-Postfijo-con-Automata-de-Pila
+
