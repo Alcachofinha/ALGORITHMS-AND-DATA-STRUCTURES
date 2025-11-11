@@ -1,44 +1,49 @@
-# Evaluador y Validador Postfijo con Autómata de Pila
+# Postfix Evaluator and Validator using Pushdown Automaton (PDA)
 
-Herramienta académica para **validar** y **evaluar** expresiones en **notación postfija (RPN)** utilizando los conceptos de **Autómata de Pila (PDA)**. Incluye verificación léxica/sintáctica básica, reporte de errores y ejemplos de uso.
-
-> Proyecto creado para fines didácticos en cursos de Autómatas/Lenguajes Formales y Estructuras de Datos.
-
----
-
-## ✨ Características
-
-- ✅ **Valida** que una cadena postfija sea correctamente formada (operadores/operandos y balance de pila).
-- ➕ **Evalúa** la expresión postfija y devuelve el resultado numérico.
-- 🧠 **Modelo PDA** documentado: estados, alfabeto de entrada, alfabeto de pila y transiciones.
-- 🧪 **Casos de prueba** incluidos para expresiones válidas e inválidas.
-- 📝 **Mensajes de error** claros (símbolo desconocido, falta de operandos, pila no vacía al final, etc.).
+Este proyecto implementa y **visualiza** la evaluación de expresiones en **Notación Polaca Inversa (RPN / Postfija)** usando un **Autómata de Pila (PDA)**.  
+Está orientado a fines educativos: muestra cómo un PDA puede validar la estructura de una expresión y calcular su resultado si es correcta.
 
 ---
 
-## 📦 Requisitos
+## 🎯 Objetivo del Proyecto
 
-<!-- Ajusta según tu implementación -->
-- <!-- TODO: Cambia si no es Java --> **Java 17+** (o superior)
-- **Maven/Gradle** (opcional si usas build)
-- Sistema operativo: Windows, macOS o Linux
-
-> Si tu proyecto está en otro lenguaje, edita esta sección (por ejemplo: Python 3.11, g++/CMake, etc.).
+- Mostrar el funcionamiento interno de un **PDA evaluador** de expresiones postfijas.
+- Representar de forma clara el **contenido de la pila** durante el proceso.
+- **Validar** si la expresión es correcta según las reglas del autómata.
+- **Calcular** el resultado si la expresión es válida.
 
 ---
 
-## 🚀 Instalación y ejecución
+## 🧠 Modelo Formal del Autómata
 
-### Opción A — Compilar y ejecutar (Java)
+El autómata se define por la séptupla:
 
-```bash
-# Clonar el repositorio
-git clone https://github.com/PaoloVM27/Evaluador-y-Validador-Postfijo-con-Automata-de-Pila.git
-cd Evaluador-y-Validador-Postfijo-con-Automata-de-Pila
+\[
+M = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)
+\]
 
-# Compilar (Maven)
-mvn -q package
+- \(Q = \{ q_0, q_1 \}\)
+- \(\Sigma = \{ V, +, -, *, /, \hat{}\}\)  
+  (Donde **V** representa un valor numérico/operando)
+- \(\Gamma = \{ X, Z_0 \}\)
+- \(q_0 = q_1\)
+- \(Z_0\) es el símbolo de fondo de pila
+- \(F = \varnothing\) — **Aceptación por pila vacía** (o por configuración final válida)
 
-# Ejecutar (reemplaza MainClass por tu clase principal)
-java -cp target/*.jar MainClass
+### Reglas principales (\(\delta\))
+
+| Entrada | Cima de la pila | Acción |
+|:------:|:----------------:|:------:|
+| **V**  | `Z0`             | `XZ0`  |
+| **V**  | `X`              | `XX`   |
+| **+ - \* /** | `XX`     | `X`    |
+| **ε**  | `XZ0`            | **acepta** |
+
+> Intuición: cada **operando** hace `push(X)`.  
+> Cada **operador binario** hace `pop(X), pop(X)` y luego `push(X)`.  
+> Al terminar, se acepta si la pila queda en configuración válida (una “X” consumida correctamente sobre `Z0`).
+
+---
+
+## 🗂️ Estructura del Proyecto
 
