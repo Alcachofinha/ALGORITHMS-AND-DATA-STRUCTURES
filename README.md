@@ -41,3 +41,4 @@ mvn -q package
 
 # Ejecutar (reemplaza MainClass por tu clase principal)
 java -cp target/*.jar MainClass
+
