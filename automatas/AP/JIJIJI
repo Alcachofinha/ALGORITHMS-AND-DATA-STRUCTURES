@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<structure>
+  <type>pda</type>
+  <automaton>
+
+    <!-- Estados -->
+    <state id="0" name="qInicio">
+      <x>100.0</x>
+      <y>150.0</y>
+      <initial/>
+    </state>
+
+    <state id="1" name="qLeer">
+      <x>260.0</x>
+      <y>150.0</y>
+    </state>
+
+    <state id="2" name="qOp2">
+      <x>420.0</x>
+      <y>70.0</y>
+    </state>
+
+    <state id="3" name="qFinal">
+      <x>420.0</x>
+      <y>230.0</y>
+    </state>
+
+    <state id="4" name="qAcepta">
+      <x>580.0</x>
+      <y>230.0</y>
+      <final/>
+    </state>
+
+    <!-- Inicializar pila con Z -->
+    <transition>
+      <from>0</from>
+      <to>1</to>
+      <read/>
+      <pop/>
+      <push>Z</push>
+    </transition>
+
+    <!-- Dígitos: cada dígito es un operando (push X) con Z -->
+    <transition><from>1</from><to>1</to><read>0</read><pop>Z</pop><push>ZX</push></transition>
+    <transition><from>1</from><to>1</to><read>1</read><pop>Z</pop><push>ZX</push></transition>
+    <transition><from>1</from><to>1</to><read>2</read><pop>Z</pop><push>ZX</push></transition>
+    <transition><from>1</from><to>1</to><read>3</read><pop>Z</pop><push>ZX</push></transition>
+    <transition><from>1</from><to>1</to><read>4</read><pop>Z</pop><push>ZX</push></transition>
+    <transition><from>1</from><to>1</to><read>5</read><pop>Z</pop><push>ZX</push></transition>
+    <transition><from>1</from><to>1</to><read>6</read><pop>Z</pop><push>ZX</push></transition>
+    <transition><from>1</from><to>1</to><read>7</read><pop>Z</pop><push>ZX</push></transition>
+    <transition><from>1</from><to>1</to><read>8</read><pop>Z</pop><push>ZX</push></transition>
+    <transition><from>1</from><to>1</to><read>9</read><pop>Z</pop><push>ZX</push></transition>
+
+    <!-- Dígitos con X en la pila -->
+    <transition><from>1</from><to>1</to><read>0</read><pop>X</pop><push>XX</push></transition>
+    <transition><from>1</from><to>1</to><read>1</read><pop>X</pop><push>XX</push></transition>
+    <transition><from>1</from><to>1</to><read>2</read><pop>X</pop><push>XX</push></transition>
+    <transition><from>1</from><to>1</to><read>3</read><pop>X</pop><push>XX</push></transition>
+    <transition><from>1</from><to>1</to><read>4</read><pop>X</pop><push>XX</push></transition>
+    <transition><from>1</from><to>1</to><read>5</read><pop>X</pop><push>XX</push></transition>
+    <transition><from>1</from><to>1</to><read>6</read><pop>X</pop><push>XX</push></transition>
+    <transition><from>1</from><to>1</to><read>7</read><pop>X</pop><push>XX</push></transition>
+    <transition><from>1</from><to>1</to><read>8</read><pop>X</pop><push>XX</push></transition>
+    <transition><from>1</from><to>1</to><read>9</read><pop>X</pop><push>XX</push></transition>
+
+    <!-- Espacios: se ignoran (no cambian pila) -->
+    <transition>
+      <from>1</from>
+      <to>1</to>
+      <read> </read>
+      <pop>Z</pop>
+      <push>Z</push>
+    </transition>
+
+    <transition>
+      <from>1</from>
+      <to>1</to>
+      <read> </read>
+      <pop>X</pop>
+      <push>X</push>
+    </transition>
+
+    <!-- Operadores: consumen 1 X y van a qOp2 -->
+    <transition><from>1</from><to>2</to><read>+</read><pop>X</pop><push/></transition>
+    <transition><from>1</from><to>2</to><read>-</read><pop>X</pop><push/></transition>
+    <transition><from>1</from><to>2</to><read>*</read><pop>X</pop><push/></transition>
+    <transition><from>1</from><to>2</to><read>/</read><pop>X</pop><push/></transition>
+
+    <!-- En qOp2 se exige el segundo operando -->
+    <transition>
+      <from>2</from>
+      <to>1</to>
+      <read/>
+      <pop>X</pop>
+      <push>X</push>
+    </transition>
+
+    <!-- Al final: sin entrada y con un solo X -->
+    <transition>
+      <from>1</from>
+      <to>3</to>
+      <read/>
+      <pop>X</pop>
+      <push/>
+    </transition>
+
+    <!-- Verificar fondo Z y aceptar -->
+    <transition>
+      <from>3</from>
+      <to>4</to>
+      <read/>
+      <pop>Z</pop>
+      <push>Z</push>
+    </transition>
+
+  </automaton>
+</structure>
